@@ -18,12 +18,8 @@
   margin: 0 0 0.5rem;
 }
 
-.home-page__eyebrow-button {
-  background: none;
-  border: none;
+.home-page__eyebrow--interactive {
   cursor: pointer;
-  padding: 0;
-  text-align: left;
 }
 
 .home-page__title {
@@ -32,13 +28,8 @@
   margin: 0 0 0.75rem;
 }
 
-.home-page__title-button {
-  background: none;
-  border: none;
-  color: inherit;
+.home-page__title--interactive {
   cursor: pointer;
-  padding: 0;
-  text-align: left;
 }
 
 .home-page__description {

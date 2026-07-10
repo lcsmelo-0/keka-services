@@ -20,20 +20,18 @@ export const HomePage = () => {
   return (
     <div className="home-page">
       <header className="home-page__hero">
-        <button
-          className="home-page__eyebrow home-page__eyebrow-button"
+        <p
+          className="home-page__eyebrow home-page__eyebrow--interactive"
           onClick={handleLoveEasterEggClick}
-          type="button"
         >
           {t('home.welcomeTo')}
-        </button>
-        <button
-          className="home-page__title home-page__title-button"
+        </p>
+        <h1
+          className="home-page__title home-page__title--interactive"
           onClick={handleEasterEggClick}
-          type="button"
         >
           {t('app.brandName')}
-        </button>
+        </h1>
         <p className="home-page__description">{t('home.description')}</p>
       </header>
 
