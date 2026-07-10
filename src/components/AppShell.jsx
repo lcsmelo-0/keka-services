@@ -1,15 +1,18 @@
 import { useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
+import { useInvoiceUnlock } from '../context/InvoiceUnlockProvider';
 import { getServiceTranslation } from '../i18n/getTranslation';
 import { useTranslation } from '../i18n/LanguageProvider';
-import { HOME_PATH, platformServices } from '../data/navigation';
+import { getVisiblePlatformServices, HOME_PATH } from '../data/navigation';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import './AppShell.css';
 
 export const AppShell = ({ children }) => {
   const location = useLocation();
   const { t } = useTranslation();
+  const { handleEasterEggClick, isInvoiceUnlocked } = useInvoiceUnlock();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const visibleServices = getVisiblePlatformServices(isInvoiceUnlocked);
 
   const handleMenuToggle = () => {
     setIsMenuOpen((currentValue) => {
@@ -40,10 +43,18 @@ export const AppShell = ({ children }) => {
           <span className="app-shell__menu-icon" />
         </button>
 
-        <Link className="app-shell__brand" onClick={handleNavClick} to={HOME_PATH}>
-          <span className="app-shell__brand-name">{t('app.brandName')}</span>
-          <span className="app-shell__brand-tagline">{t('app.brandTagline')}</span>
-        </Link>
+        <div className="app-shell__brand">
+          <Link className="app-shell__brand-link" onClick={handleNavClick} to={HOME_PATH}>
+            <span className="app-shell__brand-name">{t('app.brandName')}</span>
+          </Link>
+          <button
+            className="app-shell__brand-tagline"
+            onClick={handleEasterEggClick}
+            type="button"
+          >
+            {t('app.brandTagline')}
+          </button>
+        </div>
       </header>
 
       {isMenuOpen && (
@@ -56,9 +67,13 @@ export const AppShell = ({ children }) => {
       )}
 
       <aside className={`app-shell__sidebar ${isMenuOpen ? 'app-shell__sidebar--open' : ''}`}>
-        <Link className="app-shell__sidebar-brand" onClick={handleNavClick} to={HOME_PATH}>
+        <button
+          className="app-shell__sidebar-brand"
+          onClick={handleEasterEggClick}
+          type="button"
+        >
           <span className="app-shell__sidebar-brand-name">{t('app.brandName')}</span>
-        </Link>
+        </button>
 
         <nav className="app-shell__nav">
           <p className="app-shell__nav-title">{t('app.menu')}</p>
@@ -77,7 +92,7 @@ export const AppShell = ({ children }) => {
 
           <p className="app-shell__nav-title app-shell__nav-title--spaced">{t('app.services')}</p>
           <ul className="app-shell__nav-list">
-            {platformServices.map((service) => {
+            {visibleServices.map((service) => {
               const isActive = location.pathname === service.path;
               const serviceLabel = getServiceTranslation(t, service.id, 'label');
 

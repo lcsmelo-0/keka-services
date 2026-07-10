@@ -4,6 +4,7 @@ export const platformServices = [
   {
     id: 'invoice-generator',
     isAvailable: true,
+    isHidden: true,
     path: '/invoice-generator',
   },
   {
@@ -16,5 +17,15 @@ export const platformServices = [
 export const getPlatformServiceById = (serviceId) => {
   return platformServices.find((service) => {
     return service.id === serviceId;
+  });
+};
+
+export const getVisiblePlatformServices = (isInvoiceUnlocked) => {
+  return platformServices.filter((service) => {
+    if (service.isHidden && !isInvoiceUnlocked) {
+      return false;
+    }
+
+    return service.isAvailable;
   });
 };

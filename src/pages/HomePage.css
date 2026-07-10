@@ -24,6 +24,15 @@
   margin: 0 0 0.75rem;
 }
 
+.home-page__title-button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
 .home-page__description {
   color: #5c6570;
   font-size: 1rem;

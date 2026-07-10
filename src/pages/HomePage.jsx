@@ -1,21 +1,27 @@
 import { Link } from 'react-router-dom';
+import { useInvoiceUnlock } from '../context/InvoiceUnlockProvider';
 import { getServiceTranslation } from '../i18n/getTranslation';
 import { useTranslation } from '../i18n/LanguageProvider';
-import { platformServices } from '../data/navigation';
+import { getVisiblePlatformServices } from '../data/navigation';
 import './HomePage.css';
 
 export const HomePage = () => {
   const { t } = useTranslation();
+  const { handleEasterEggClick, isInvoiceUnlocked } = useInvoiceUnlock();
 
-  const availableServices = platformServices.filter((service) => {
-    return service.isAvailable;
-  });
+  const availableServices = getVisiblePlatformServices(isInvoiceUnlocked);
 
   return (
     <div className="home-page">
       <header className="home-page__hero">
         <p className="home-page__eyebrow">{t('home.welcomeTo')}</p>
-        <h1 className="home-page__title">{t('app.brandName')}</h1>
+        <button
+          className="home-page__title home-page__title-button"
+          onClick={handleEasterEggClick}
+          type="button"
+        >
+          {t('app.brandName')}
+        </button>
         <p className="home-page__description">{t('home.description')}</p>
       </header>
 
