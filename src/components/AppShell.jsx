@@ -1,18 +1,24 @@
 import { useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useInvoiceUnlock } from '../context/InvoiceUnlockProvider';
+import { useTripleClick } from '../hooks/useTripleClick';
 import { getServiceTranslation } from '../i18n/getTranslation';
 import { useTranslation } from '../i18n/LanguageProvider';
-import { getVisiblePlatformServices, HOME_PATH } from '../data/navigation';
+import { getVisiblePlatformServices, HOME_PATH, LOVE_EASTER_EGG_PATH } from '../data/navigation';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import './AppShell.css';
 
 export const AppShell = ({ children }) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const { handleEasterEggClick, isInvoiceUnlocked } = useInvoiceUnlock();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const visibleServices = getVisiblePlatformServices(isInvoiceUnlocked);
+
+  const handleLoveEasterEggClick = useTripleClick(() => {
+    navigate(LOVE_EASTER_EGG_PATH);
+  });
 
   const handleMenuToggle = () => {
     setIsMenuOpen((currentValue) => {
@@ -90,7 +96,13 @@ export const AppShell = ({ children }) => {
             </li>
           </ul>
 
-          <p className="app-shell__nav-title app-shell__nav-title--spaced">{t('app.services')}</p>
+          <button
+            className="app-shell__nav-title app-shell__nav-title--spaced app-shell__nav-title-button"
+            onClick={handleLoveEasterEggClick}
+            type="button"
+          >
+            {t('app.services')}
+          </button>
           <ul className="app-shell__nav-list">
             {visibleServices.map((service) => {
               const isActive = location.pathname === service.path;

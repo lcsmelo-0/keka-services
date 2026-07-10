@@ -1,5 +1,7 @@
 export const HOME_PATH = '/';
 
+export const LOVE_EASTER_EGG_PATH = '/keka';
+
 export const platformServices = [
   {
     id: 'invoice-generator',

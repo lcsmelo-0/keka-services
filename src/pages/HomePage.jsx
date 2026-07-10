@@ -1,20 +1,32 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useInvoiceUnlock } from '../context/InvoiceUnlockProvider';
+import { useTripleClick } from '../hooks/useTripleClick';
 import { getServiceTranslation } from '../i18n/getTranslation';
 import { useTranslation } from '../i18n/LanguageProvider';
-import { getVisiblePlatformServices } from '../data/navigation';
+import { getVisiblePlatformServices, LOVE_EASTER_EGG_PATH } from '../data/navigation';
 import './HomePage.css';
 
 export const HomePage = () => {
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const { handleEasterEggClick, isInvoiceUnlocked } = useInvoiceUnlock();
+
+  const handleLoveEasterEggClick = useTripleClick(() => {
+    navigate(LOVE_EASTER_EGG_PATH);
+  });
 
   const availableServices = getVisiblePlatformServices(isInvoiceUnlocked);
 
   return (
     <div className="home-page">
       <header className="home-page__hero">
-        <p className="home-page__eyebrow">{t('home.welcomeTo')}</p>
+        <button
+          className="home-page__eyebrow home-page__eyebrow-button"
+          onClick={handleLoveEasterEggClick}
+          type="button"
+        >
+          {t('home.welcomeTo')}
+        </button>
         <button
           className="home-page__title home-page__title-button"
           onClick={handleEasterEggClick}

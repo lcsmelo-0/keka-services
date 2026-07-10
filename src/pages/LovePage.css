@@ -1,0 +1,115 @@
+.love-page {
+  align-items: center;
+  background: linear-gradient(135deg, #ff9ecb 0%, #ff6eb4 35%, #ffc2dd 70%, #ff85c0 100%);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 2rem;
+  position: relative;
+}
+
+.love-page__hearts {
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+}
+
+.love-page__heart {
+  animation: love-page-float 6s ease-in-out infinite;
+  font-size: 2rem;
+  opacity: 0.85;
+  position: absolute;
+  top: 110%;
+}
+
+.love-page__content {
+  animation: love-page-fade-in 0.8s ease-out;
+  background-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.65);
+  border-radius: 24px;
+  box-shadow: 0 16px 48px rgba(255, 46, 133, 0.25);
+  max-width: 640px;
+  padding: 3rem 2rem;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+}
+
+.love-page__emoji-row {
+  font-size: 2rem;
+  letter-spacing: 0.35rem;
+  margin: 0 0 1.5rem;
+}
+
+.love-page__emoji-row:last-of-type {
+  margin-bottom: 2rem;
+}
+
+.love-page__message {
+  color: #8b0047;
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0 0 1.5rem;
+  text-shadow: 0 2px 12px rgba(255, 255, 255, 0.6);
+}
+
+.love-page__back {
+  background-color: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 999px;
+  color: #c2185b;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.love-page__back:hover {
+  background-color: #ffffff;
+  transform: scale(1.04);
+}
+
+@keyframes love-page-float {
+  0% {
+    opacity: 0;
+    transform: translateY(0) rotate(0deg);
+  }
+
+  15% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-120vh) rotate(360deg);
+  }
+}
+
+@keyframes love-page-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .love-page__content {
+    padding: 2rem 1.25rem;
+  }
+
+  .love-page__emoji-row {
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+  }
+}

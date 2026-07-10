@@ -137,6 +137,16 @@
   margin-top: 1.5rem;
 }
 
+.app-shell__nav-title-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: block;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
 .app-shell__nav-list {
   display: flex;
   flex-direction: column;
