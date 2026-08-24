@@ -1,0 +1,74 @@
+.link-item {
+  align-items: flex-start;
+  background-color: #ffffff;
+  border: 1px solid #eef1f4;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: space-between;
+  padding: 0.875rem 1rem;
+}
+
+.link-item__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.link-item__title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+  word-break: break-word;
+}
+
+.link-item__url {
+  color: #0969da;
+  font-size: 0.8125rem;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.link-item__url:hover {
+  text-decoration: underline;
+}
+
+.link-item__actions {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.link-item__action {
+  background-color: #f6f8fa;
+  border: 1px solid #d8dee4;
+  border-radius: 8px;
+  color: #1a1a1a;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.375rem 0.625rem;
+  text-decoration: none;
+}
+
+.link-item__action:hover {
+  background-color: #eceff3;
+}
+
+.link-item__action--primary {
+  background-color: #0969da;
+  border-color: #0969da;
+  color: #ffffff;
+}
+
+.link-item__action--primary:hover {
+  background-color: #0550ae;
+}
+
+.link-item__action--danger:hover {
+  background-color: #ffebe9;
+  border-color: #ffcecb;
+  color: #cf222e;
+}

@@ -1,32 +1,42 @@
 # Keka Services
 
-Internal tools platform built with React + Vite.
+App React com ferramentas internas. Os dados ficam no `localStorage` do navegador — sem backend, banco ou login.
 
-## Services
+## Estrutura
 
-- **Invoice Generator** — create and download professional invoices as PDF
-- **QR Code Generator** — generate QR codes and download as PNG, JPEG, or PDF
+```text
+keka-services/
+  frontend/   # app React + Vite
+```
 
-## Stack
+## Serviços
 
-- React + Vite
-- react-router-dom
-- html2pdf.js, qrcode
+- **Invoice Generator** — invoices em PDF
+- **QR Code Generator** — QR codes em PNG/JPEG/PDF, com histórico no navegador
+- **Todo Board** — board com drag and drop e lista
+- **Links Board** — links soltos e grupos em accordion
 
-## Run
+## Setup local
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Adding services
+Frontend: `http://localhost:5173`
 
-1. Add the service in `src/data/navigation.js`
-2. Create a page in `src/pages/`
-3. Register the route in `src/App.jsx`
-4. Add translations in `src/i18n/translations/`
+## Persistência
 
-## Adding invoice clients
+Tarefas, links e histórico de QR codes são salvos no `localStorage` deste navegador. Limpar os dados do site apaga esses registros.
 
-Edit `src/data/clients.js` and add entries to the `clients` array.
+## Deploy (Vercel)
+
+1. Importe o repositório.
+2. O [`vercel.json`](vercel.json) builda o frontend e serve o SPA.
+
+## Adicionar serviços
+
+1. Adicione o serviço em `frontend/src/data/navigation.js`
+2. Crie a página em `frontend/src/pages/`
+3. Registre a rota em `frontend/src/App.jsx`
+4. Adicione traduções em `frontend/src/i18n/translations/`
