@@ -14,6 +14,11 @@ export const platformServices = [
     path: '/qr-code-generator',
   },
   {
+    id: 'string-decoder',
+    isAvailable: true,
+    path: '/string-decoder',
+  },
+  {
     id: 'todo-board',
     isAvailable: true,
     path: '/todo-board',

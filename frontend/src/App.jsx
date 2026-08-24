@@ -7,6 +7,7 @@ import { InvoiceGeneratorPage } from './pages/InvoiceGeneratorPage';
 import { LinksBoardPage } from './pages/LinksBoardPage';
 import { LovePage } from './pages/LovePage';
 import { QrCodeGeneratorPage } from './pages/QrCodeGeneratorPage';
+import { StringDecoderPage } from './pages/StringDecoderPage';
 import { TodoBoardPage } from './pages/TodoBoardPage';
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
             <Route element={<HomePage />} index />
             <Route element={<InvoiceGeneratorPage />} path="invoice-generator" />
             <Route element={<QrCodeGeneratorPage />} path="qr-code-generator" />
+            <Route element={<StringDecoderPage />} path="string-decoder" />
             <Route element={<TodoBoardPage />} path="todo-board" />
             <Route element={<LinksBoardPage />} path="links-board" />
           </Route>

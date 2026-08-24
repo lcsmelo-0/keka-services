@@ -119,10 +119,37 @@ export const en = {
       description: 'Turn text or links into QR codes ready to download',
       label: 'QR Code Generator',
     },
+    stringDecoder: {
+      description: 'Decode or encode URL, Base64, Unicode, and HTML',
+      label: 'String Decoder',
+    },
     todoBoard: {
       description: 'Organize your tasks in columns or as a list',
       label: 'Todo Board',
     },
+  },
+  stringDecoder: {
+    copied: 'Copied',
+    copy: 'Copy',
+    decode: 'Decode',
+    description:
+      'Paste a string and decode or encode it as URL, Base64, Unicode, or HTML. Decode repeats until the result stops changing.',
+    encode: 'Encode',
+    errorInvalid: 'Could not transform this value with the selected format.',
+    inputLabel: 'Input',
+    inputPlaceholder: 'Paste the string here',
+    modeLabel: 'Format',
+    modes: {
+      base64: 'Base64',
+      html: 'HTML',
+      unicode: 'Unicode',
+      url: 'URL',
+    },
+    outputLabel: 'Output',
+    outputPlaceholder: 'The result appears here',
+    passCount: 'Decoded {{count}} times until the result stopped changing.',
+    title: 'String Decoder',
+    useAsInput: 'Use as input',
   },
   todoBoard: {
     addTask: 'Add task',

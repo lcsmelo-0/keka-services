@@ -13,6 +13,7 @@ keka-services/
 
 - **Invoice Generator** — invoices em PDF
 - **QR Code Generator** — QR codes em PNG/JPEG/PDF, com histórico no navegador
+- **String Decoder** — decode/encode de URL, Base64, Unicode e HTML
 - **Todo Board** — board com drag and drop e lista
 - **Links Board** — links soltos e grupos em accordion
 
